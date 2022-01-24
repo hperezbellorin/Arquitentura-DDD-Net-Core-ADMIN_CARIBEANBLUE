@@ -1,0 +1,44 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <OutputType>Exe</OutputType>
+    <RootNamespace>ADMIN_CARIBEAN-BLUE</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="bootstrap" Version="5.1.3" />
+    <PackageReference Include="Microsoft.AspNetCore.Identity" Version="2.2.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="3.1.11" />
+    <PackageReference Include="Microsoft.AspNetCore.Identity.UI" Version="3.1.11" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation" Version="3.0.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.TagHelpers" Version="2.2.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="3.1.11">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="3.1.11" />
+    <PackageReference Include="Microsoft.Extensions.Identity.Core" Version="6.0.1" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="3.1.5" />
+    <PackageReference Include="MySql.EntityFrameworkCore" Version="3.1.10" />
+    <PackageReference Include="Pomelo.EntityFrameworkCore.MySql" Version="3.1.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Areas\RRHH\Data\" />
+    <Folder Include="Areas\RRHH\Models\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Aplicacion.Contratos\Aplicacion.Contratos.csproj" />
+    <ProjectReference Include="..\Aplicacion.Servicio\Aplicacion.Servicio.csproj" />
+    <ProjectReference Include="..\Dominio.Contratos\Dominio.Contratos.csproj" />
+    <ProjectReference Include="..\Dominio.Negocio\Dominio.Negocio.csproj" />
+    <ProjectReference Include="..\Dominio.Servicios\Dominio.Servicios.csproj" />
+    <ProjectReference Include="..\Infraestructura.DBContext\Infraestructura.DBContext.csproj" />
+    <ProjectReference Include="..\Infraestructura.Repositorios\Infraestructura.Repositorios.csproj" />
+    <ProjectReference Include="..\Infraestructura.UoW\Infraestructura.UoW.csproj" />
+    <ProjectReference Include="..\InfraestructuraTransversal.General\InfraestructuraTransversal.General.csproj" />
+  </ItemGroup>
+
+</Project>

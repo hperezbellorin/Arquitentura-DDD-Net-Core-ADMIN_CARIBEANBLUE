@@ -1,0 +1,60 @@
+﻿@model List<Aplicacion.EntidadesDto.MenusDto>
+
+@{
+    ViewData["Title"] = "NavigationMenu";
+}
+
+<div class="sb-sidenav-menu">
+    <div class="nav">
+        <div class="sb-sidenav-menu-heading">Core</div>
+        <a class="nav-link" href="index.html">
+            <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
+            Dashboard
+        </a>
+         <div class="sb-sidenav-menu-heading">Interface</div>
+
+        @foreach (var item in Model)
+        {
+            if (item.PadreId != null)
+
+            {
+    <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseLayouts" aria-expanded="false" aria-controls="collapseLayouts">
+        <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
+        @item.Nombre
+        <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+       </a>
+
+            <div class="collapse" id="collapseLayouts" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
+                <nav class="sb-sidenav-menu-nested nav">
+                
+            @foreach (var item2 in ViewBag.data)
+            {
+                if (item.PadreId == item2.PadreId)
+                {
+                
+                  <a class="nav-link" asp-area="@item2.Area" asp-controller="@item2.Controlador" asp-action="@item2.Accion"> @item2.Descripcion</a>
+                  
+               
+                }
+            }
+        </nav>
+            </div>
+
+    
+
+            }
+        }
+
+
+
+
+      
+
+
+    </div>
+    <div class="sb-sidenav-footer">
+        <div class="small">Logged in as:</div>
+        RRHH
+    </div>
+
+</div>

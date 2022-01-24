@@ -1,0 +1,15 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Aplicacion.Contratos\Aplicacion.Contratos.csproj" />
+    <ProjectReference Include="..\Aplicacion.Servicio\Aplicacion.Servicio.csproj" />
+    <ProjectReference Include="..\Dominio.Contratos\Dominio.Contratos.csproj" />
+    <ProjectReference Include="..\Dominio.Negocio\Dominio.Negocio.csproj" />
+  </ItemGroup>
+
+</Project>

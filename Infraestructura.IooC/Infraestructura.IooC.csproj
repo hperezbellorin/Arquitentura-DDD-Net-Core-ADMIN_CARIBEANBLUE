@@ -1,0 +1,16 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Library</OutputType>
+    <TargetFramework>netcoreapp2.2</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Aplicacion.Contratos\Aplicacion.Contratos.csproj" />
+    <ProjectReference Include="..\Aplicacion.Servicio\Aplicacion.Servicio.csproj" />
+    <ProjectReference Include="..\Dominio.Contratos\Dominio.Contratos.csproj" />
+    <ProjectReference Include="..\Dominio.Negocio\Dominio.Negocio.csproj" />
+    <ProjectReference Include="..\Infraestructura.UoW\Infraestructura.UoW.csproj" />
+  </ItemGroup>
+
+</Project>
