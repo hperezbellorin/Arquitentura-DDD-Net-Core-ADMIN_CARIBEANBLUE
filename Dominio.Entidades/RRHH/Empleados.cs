@@ -18,6 +18,8 @@ namespace Dominio.Entidades.RRHH
         public string Departamento { get; set; }
         public string NameImage { get; set; }
         public string Image { get; set; }
+        public string FechaIngreso { get; set; }
+        public string FechaModificacion { get; set; }
         public bool? IsActive { get; set; }
     }
 }

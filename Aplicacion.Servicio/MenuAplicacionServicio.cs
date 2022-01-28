@@ -26,14 +26,15 @@ namespace Aplicacion.Servicio
 
             foreach (var item in menusList)
             {
-                MenusDto menusdto = new MenusDto();
-                menusdto.MenuId = item.MenuId;
-                menusdto.PadreId = item.PadreId;
-                menusdto.Nombre = item.Nombre;
-                menusdto.Controlador = item.Controlador;
-                menusdto.ControlId = item.ControlId;
-                menusdto.Descripcion = item.Descripcion;
-                menusListDto.Add(menusdto);
+                MenusDto mmnus = new MenusDto();
+                mmnus.Area = item.Area;
+                mmnus.PadreId = item.PadreId;
+                mmnus.ControlId = item.ControlId;
+                mmnus.Controlador = item.Controlador;
+                mmnus.Accion = item.Accion;
+                mmnus.Descripcion = item.Descripcion;
+                mmnus.Nombre = item.Nombre.TrimEnd();
+                menusListDto.Add(mmnus);
             }
 
             return menusListDto;

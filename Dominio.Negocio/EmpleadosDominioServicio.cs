@@ -1,6 +1,7 @@
 ﻿using Dominio.Contratos.UnidadTrabajo;
 using Dominio.Entidades.RRHH;
 using Dominio.Servicios;
+using Infraestructura.DBContext.RRHH;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,19 +18,69 @@ namespace Dominio.Negocio
         {
             this.unidadTrabajoRRHH = _unidadTrabajoRRHH;
         }
-        public Task<Empleados> buscarPaisporId(int Id)
+        public async Task<Empleados> buscarEmpleadosporId(int Id)
         {
-            throw new NotImplementedException();
+            try
+            {
+                return await unidadTrabajoRRHH.EmpleadosDB.Buscar(Id);
+            }
+            catch (Exception ex)
+            {
+
+
+                throw new Exception("Ocurrio un problema al buscar empleados",ex);
+            }
+           
         }
 
-        public Task<bool> Create(Empleados probabilidades)
+        public async  Task<bool> Create(Empleados empleado)
         {
-            throw new NotImplementedException();
+            try
+            {
+
+
+              
+
+                return await Task.Factory.StartNew(() =>
+                {
+                    unidadTrabajoRRHH.EmpleadosDB.Add(empleado);
+                    unidadTrabajoRRHH.commit();
+                    return true;
+
+                });
+            }
+            catch (Exception ex)
+            {
+
+                throw new Exception("Ocurrio un problema al guardar al empleado");
+            }
         }
 
-        public Task<bool> Edit(Empleados probabilidades)
+        public async Task<bool> Edit(Empleados empleados)
         {
-            throw new NotImplementedException();
+            try
+            {
+
+            var empleadoActual = await buscarEmpleadosporId(empleados.Id);
+
+            empleadoActual.Nombres = empleados.Nombres;
+            empleadoActual.Apellido1 = empleados.Apellido1;
+            empleadoActual.Cedula = empleados.Cedula;
+            empleadoActual.Correo = empleados.Correo;
+            return await Task.Factory.StartNew(() =>
+            {
+                unidadTrabajoRRHH.EmpleadosDB.Update(empleadoActual);
+                unidadTrabajoRRHH.commit();
+                return true;
+            });
+
+            }
+            catch (Exception ex)
+            {
+
+                throw new Exception("Ocurrio un problema al actualizar al empleado",ex);
+            }
+
         }
 
         public Task<bool> Eliminar(int Id)

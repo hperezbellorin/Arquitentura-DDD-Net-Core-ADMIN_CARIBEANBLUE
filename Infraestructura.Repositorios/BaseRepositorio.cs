@@ -26,7 +26,9 @@ namespace Infraestructura.Repositorios
 
         public bool Add(T Entidad)
         {
+          
             BaseDatosColeccion.Add(Entidad);
+            
             return true;
         }
 

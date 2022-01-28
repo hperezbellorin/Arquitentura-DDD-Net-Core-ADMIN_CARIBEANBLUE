@@ -54,7 +54,10 @@ namespace MVC_presentacion
 
             services.AddMvc(options => options.EnableEndpointRouting = false);
             services.AddDbContext<RRHHContext>(options =>
-           options.UseMySQL(Configuration.GetConnectionString("MySQLConnection")));
+           options.UseMySQL(Configuration.GetConnectionString("MySQLConnection")
+         
+          
+           ), ServiceLifetime.Transient);
 
             services.AddDbContext<SeguridadContext>(options =>
           options.UseMySQL(Configuration.GetConnectionString("MySQLConnectionSeguridad")));
@@ -76,23 +79,27 @@ namespace MVC_presentacion
             //Aplicacion 
             services.AddScoped<IUsuariosAplicacionServicio, UsuarioAplicacionServicio>();
             services.AddScoped<IMenusAplicacionServicio, MenuAplicacionServicio>();
+            services.AddScoped<IEmpleadosAplicacionServicio, EmpleadosAplicacionServicio>();
 
 
 
             //Repositorios Dominios Servicios Implementacions Domino Negocios Servicios
             services.AddScoped<IUsuarioDominioServicio, UsuariosDominioServicio>();
             services.AddScoped<IAspMenusDominioServicios, MenusDominioServicio>();
+            services.AddScoped<IEmpleadosDominioServicios, EmpleadosDominioServicio>();
 
 
 
             //Repositorios Dominios Implementacion Repositorios Infraestructura
             services.AddScoped<IUsuariosDominioRepositorio, UsuariosRepositorio>();
             services.AddScoped<IAspMenuDominioRepositorio, AspMenusRepositorio>();
-            
+            services.AddScoped<IEmpleadosDominioRepositorio, EmpleadosRepositorio>();
 
 
-           
-           
+
+
+
+
             // Unidades de Trabajos
             services.AddScoped<IUnidadTrabajoRRHH, UnidadTrabajoRRHH>();
             services.AddScoped<IUnidadTrabajoADMIN, UnidadTrabajoADMIN>();
@@ -101,7 +108,7 @@ namespace MVC_presentacion
             //seguridad
             services.AddScoped<ISeguridad, Seguridad>();
 
-
+            services.BuildServiceProvider();
 
 
             services.AddControllersWithViews();
@@ -140,6 +147,7 @@ namespace MVC_presentacion
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
+               
             }
             else
             {

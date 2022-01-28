@@ -101,6 +101,10 @@ namespace InfraestructuraTransversal.General.Utilitarios
 
         public static string ValidateNullorEmptySTRING(string strField) // this subroutine is used to validate data null or empty when the field is a string
         {
+            if (string.IsNullOrEmpty(strField))
+            {
+                return "";
+            }
 
             if (strField == null)
             {

@@ -16,8 +16,8 @@ namespace Infraestructura.DBContext.RRHH
         {
         }
 
-        public virtual DbSet<Tmenu> Tmenu { get; set; }
-        public virtual DbSet<Tprivilegio> Tprivilegio { get; set; }
+        //public virtual DbSet<Tmenu> Tmenu { get; set; }
+        //public virtual DbSet<Tprivilegio> Tprivilegio { get; set; }
         public virtual DbSet<Tusuarios> Tusuarios { get; set; }
 
         public virtual DbSet<Empleados> Empleados { get; set; }
@@ -34,81 +34,7 @@ namespace Infraestructura.DBContext.RRHH
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<Tmenu>(entity =>
-            {
-                entity.HasKey(e => e.Idm)
-                    .HasName("PRIMARY");
-
-                entity.ToTable("tmenu");
-
-                entity.HasIndex(e => e.IdMenu)
-                    .HasName("fkprivilegio");
-
-                entity.Property(e => e.Idm)
-                    .HasColumnName("IDM")
-                    .HasColumnType("int(11)");
-
-                entity.Property(e => e.Descripcion).HasMaxLength(50);
-
-                entity.Property(e => e.Estado).HasColumnType("bit(1)");
-
-                entity.Property(e => e.IdMenu).HasColumnType("int(11)");
-
-                entity.Property(e => e.IdUsuarioModificacion)
-                    .HasColumnName("Id_UsuarioModificacion")
-                    .HasColumnType("int(255)");
-
-                entity.Property(e => e.Idwebform).HasColumnType("int(11)");
-
-                entity.Property(e => e.Modulo).HasMaxLength(100);
-
-                entity.Property(e => e.NameWebform)
-                    .HasColumnName("Name_webform")
-                    .HasMaxLength(100);
-
-                entity.Property(e => e.PadreId).HasColumnType("int(11)");
-
-                entity.Property(e => e.Posicion).HasColumnType("int(11)");
-
-                entity.Property(e => e.ShowItem)
-                    .HasColumnName("Show_item")
-                    .HasColumnType("int(50)")
-                    .HasComment("1: Devolucion  2: Reembolso");
-
-                entity.Property(e => e.TipoMenu)
-                    .HasColumnName("Tipo_Menu")
-                    .HasColumnType("int(11)");
-
-                entity.Property(e => e.Url).HasMaxLength(100);
-            });
-
-            modelBuilder.Entity<Tprivilegio>(entity =>
-            {
-                entity.ToTable("tprivilegio");
-
-                entity.HasIndex(e => e.IdMenu)
-                    .HasName("id_menu");
-
-                entity.HasIndex(e => e.IdRol)
-                    .HasName("id_rol");
-
-                entity.Property(e => e.Id)
-                    .HasColumnName("ID")
-                    .HasColumnType("int(11)");
-
-                entity.Property(e => e.IdMenu)
-                    .HasColumnName("id_menu")
-                    .HasColumnType("int(11)");
-
-                entity.Property(e => e.IdRol)
-                    .HasColumnName("id_rol")
-                    .HasColumnType("int(11)");
-
-                entity.Property(e => e.IdSubmenu)
-                    .HasColumnName("id_submenu")
-                    .HasColumnType("int(11)");
-            });
-
+           
             modelBuilder.Entity<Tusuarios>(entity =>
             {
                 entity.HasKey(e => e.Iduser)
@@ -181,7 +107,7 @@ namespace Infraestructura.DBContext.RRHH
                 entity.Property(e => e.Apellido2).HasMaxLength(20);
 
                 entity.Property(e => e.Cargo)
-                    .IsRequired()
+                   
                     .HasMaxLength(255);
 
                 entity.Property(e => e.Cedula)
@@ -191,7 +117,7 @@ namespace Infraestructura.DBContext.RRHH
                 entity.Property(e => e.Correo).HasMaxLength(70);
 
                 entity.Property(e => e.Departamento)
-                    .IsRequired()
+                   
                     .HasMaxLength(255);
 
                 entity.Property(e => e.Direccion).HasMaxLength(255);
@@ -201,6 +127,10 @@ namespace Infraestructura.DBContext.RRHH
                     .HasMaxLength(3);
 
                 entity.Property(e => e.EstadoCivil).HasMaxLength(20);
+
+                entity.Property(e => e.FechaIngreso).HasMaxLength(255);
+
+                entity.Property(e => e.FechaModificacion).HasMaxLength(255);
 
                 entity.Property(e => e.Image).HasColumnType("longtext");
 
@@ -212,6 +142,7 @@ namespace Infraestructura.DBContext.RRHH
                     .IsRequired()
                     .HasMaxLength(255);
             });
+
 
             modelBuilder.Entity<Marcaciones>(entity =>
             {
