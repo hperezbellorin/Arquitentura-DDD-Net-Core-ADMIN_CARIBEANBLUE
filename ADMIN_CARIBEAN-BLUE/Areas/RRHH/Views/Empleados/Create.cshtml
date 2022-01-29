@@ -5,7 +5,19 @@
     Layout = "~/Views/Shared/_LayoutRRHH.cshtml";
 }
 
-<h1>Agregar nuevo Empleado</h1>
+
+<ol class="breadcrumb mb-3">
+    <h1l class="mt-4">Agregar nuevo Empleado</h1l>
+</ol>
+<div class="alert alert-success">
+    <div class="row">
+        <div class="col-lg-8 col-md-8">
+            <a asp-action="Index" class="btn btn-danger btn-sm pull-right">Listado empleados</a>
+
+        </div>
+
+    </div>
+</div>
 <div class="card mb-4">
     <div class="card-header">
         <i class="fas fa-table me-1"></i>
@@ -13,213 +25,215 @@
     </div>
     <div class="card-body">
         @*<div class="text-danger" asp-validation-summary="ModelOnly">
-        </div>*@
+            </div>*@
         <form asp-action="Create" method="post">
-           
+
             <div class="panel panel-default">
                 <div class="panel-heading" style="text-align: center;font-weight:bold">
-                    <i class="fas fa-address fa-2x"></i>  Ingresar Datos Generales del Empleado
+                    <i class="fas fa-address-card fa-2x" style="color:green"></i> Ingresar Datos Generales del Empleado
 
                 </div>
                 <div asp-validation-summary="All" class="text-danger">  </div>
-                    <!-- /.panel-heading -->
-                    <div class="panel-body">
 
-                        <input type="hidden" id="currentTab" value=0 class="hidden">
-                        <div class="row">
-                            <div class="col-lg-4 col-md-4">
-                                <div class="form-group">
+                <!-- /.panel-heading -->
+                <div class="panel-body">
 
-                                    <label asp-for="Nombres"></label>
-                                    <input asp-for="Nombres" placeholder="Nombres" autocomplete="off" class="form-control" />
-
-
-                                    @*<input type="text" id="fileName" name="fileName" value="" class="hidden">*@
-
-                                </div>
-                            </div>
-                            <div class="col-lg-4 col-md-4">
-                                <div class="form-group">
-                                    <label asp-for="Apellido1">Primer Apellido</label>
-                                    <input asp-for="Apellido1" placeholder="Apellidos " autocomplete="off" class="form-control" />
-
-                                </div>
-
-                            </div>
-                            <div class="col-lg-4 col-md-4">
-                                <div class="form-group">
-                                    <label asp-for="Correo">Correo</label>
-                                    <input asp-for="Correo" placeholder="Correo " autocomplete="off" class="form-control" />
-                                   
-                                </div>
-                            </div>
-
-                        </div>
-
-                        <div class="row">
-                            <div class="col-lg-4 col-md-4">
-                                <div class="form-group">
-                                    <label asp-for="Cedula"> Cedula N°</label>
-                                    <input asp-for="Cedula" placeholder="Cedula" autocomplete="off" class="form-control" />
-
-                                </div>
-                            </div>
-                            <div class="col-lg-4 col-md-4">
-                                <div class="form-group">
-                                    <label>
-                                        Fecha de Nacimiento
-                                    </label>
-
-                                    <div> <input type="us-date" style="font-weight: bold" name="txt_date" id="txt_date" class="form-control" autocomplete="off"></div>
-                                </div>
-
-
-                            </div>
-
-                            <div class="col-lg-2 col-md-2">
-                                <label> Sexo</label>
-
-                                <div class="form-group">
-
-
-                                    <select style="background: #c9e9ff; font-weight: bold;" name='radioSeX' id='radioSeX' class="form-control">
-                                        <option value="0">Seleccionar</option>
-                                        <option value="1">Masculino</option>
-                                        <option value="2">Femenino</option>
-
-                                    </select>
-
-                                </div>
-
-                            </div>
-                            <div class="col-lg-2 col-md-2">
-                                <label>Estado civil</label>
-                                <div class="form-group">
-                                    <select style="background: #c9e9ff; font-weight: bold;" name='optradio' id='optradio' class="form-control">
-                                        <option value="0">Seleccionar</option>
-                                        <option value="1">Casado</option>
-                                        <option value="2">Soltero</option>
-                                        <option value="3">Otros</option>
-
-                                    </select>
-                                </div>
-                            </div>
-
-
-
-
-                        </div>
-
-                        <div class="row">
-                            <div class="col-lg-12 col-md-12">
-                                <label> Dirección</label>
-
-                                <input type="text" name="sDireccion" style="font-weight: bold" id="sDireccion" placeholder="Direccion" value="" class="form-control" />
-
-                            </div>
-                        </div>
-
-
-
-                        <div class="row">
-                            <div class="col-lg-4 col-md-4">
-                                <div class="form-group">
-                                    <label>Departamento</label>
-                                    <select style="background: #c9e9ff; font-weight: bold;" name='dtDepartament' id='dtDepartament' class="form-control">
-                                    </select>
-
-
-                                </div>
-                            </div>
-                            <div class="col-lg-4 col-md-4">
-
-                                <div class="form-group">
-                                    <label>Ciudad</label>
-                                    <select style="background: #c9e9ff; font-weight: bold;" name='dtCities' id='dtCities' class="form-control">
-                                        <option value="0">Seleccionar</option>
-                                    </select>
-
-                                </div>
-
-
-
-                            </div>
-
-                            <div class="col-lg-4 col-md-4">
-                                <div class="form-group">
-                                    <label>Telefono domiciliar</label>
-                                    <input type="text" style="font-weight: bold" name="w2int" id="w2int" placeholder="Telefono" value="" class="form-control" />
-                                </div>
-                            </div>
-
-                        </div>
-
-
-
-                        <div class="row">
-
-
-                            <div class="col-lg-2 col-md-2">
-                                <div class="form-group">
-                                    <label>Telefono/Celular</label>
-                                    <input type="text" style="font-weight: bold" placeholder="Telefono/Celular" class="form-control" />
-                                </div>
-
-                            </div>
-                        </div>
-
-
-
-
-                    </div>
-                </div>
-
-
-                <div class="panel panel-default">
-                    <div class="panel-heading" style="text-align: center;font-weight:bold">
-                        <i class="fa  -address fa-2x"></i>  Subir Foto
-
-                    </div>
-                    <!-- /.panel-heading -->
-                    <div class="panel-body">
-
-                        <div class="row">
-                            <div class="col-lg-2 ">
-                                <label>Subir Imagen</label>
-                            </div>
-                            <div class="col-lg-3  col-md-3">
-                                <i class="fa fa-image fa-2x"></i>
-
-                                <button type="button" id="cargarImage" name="cargarImage" style="padding:10px; margin:0 50px 15px 0;" class="btn btn-primary btn-sm pull-right" data-toggle="modal" data-target="#img-modal"> <b>Subir Imagen</b></button>
-
-                            </div>
-                            <div class="col-lg-3  col-md-3">
-                                <input type="text" style="font-weight: bold" readonly="true" name="nameIMG" id="nameIMG" placeholder="Imagen" class="form-control" />
-                                <input id="base64" name="base64" type="hidden">
-                            </div>
-                            <div class="col-lg-3  col-md-3">
-
-                                <img id="imgData" class="" style="height: 150px; width: 150px;" src="../upload/student.png">
-
-
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="well">
+                    <input type="hidden" id="currentTab" value=0 class="hidden">
                     <div class="row">
-                        <div class="col-lg-2 col-md-offset-2">
-                            <label>Guardar datos</label>
-                        </div>
-                        <div class="col-lg-6  col-md-6">
+                        <div class="col-lg-4 col-md-4">
+                            <div class="form-group">
 
-                            <button type="submit" name="btnguardar" class="btn btn-sm btn-success"><i class="fa fa-save" aria-hidden="true"></i> Guardar</button>
-                            <a asp-action="Index" class="btn btn-sm btn-danger">Cancelar</a>
+                                <label asp-for="Nombres"></label>
+                                <input asp-for="Nombres" placeholder="Nombres" autocomplete="off" class="form-control" />
+
+
+                                @*<input type="text" id="fileName" name="fileName" value="" class="hidden">*@
+
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-4">
+                            <div class="form-group">
+                                <label asp-for="Apellido1">Primer Apellido</label>
+                                <input asp-for="Apellido1" placeholder="Apellidos " autocomplete="off" class="form-control" />
+
+                            </div>
+
+                        </div>
+                        <div class="col-lg-4 col-md-4">
+                            <div class="form-group">
+                                <label asp-for="Correo">Correo</label>
+                                <input asp-for="Correo" placeholder="Correo " autocomplete="off" class="form-control" />
+
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="row">
+                        <div class="col-lg-4 col-md-4">
+                            <div class="form-group">
+                                <label asp-for="Cedula"> Cedula N°</label>
+                                <input asp-for="Cedula" placeholder="Cedula" autocomplete="off" class="form-control" />
+
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-4">
+                            <div class="form-group">
+                                <label>
+                                    Fecha de Nacimiento
+                                </label>
+
+                                <div> <input type="us-date" style="font-weight: bold" name="txt_date" id="txt_date" class="form-control" autocomplete="off"></div>
+                            </div>
+
+
+                        </div>
+
+                        <div class="col-lg-2 col-md-2">
+                            <label> Sexo</label>
+
+                            <div class="form-group">
+
+
+                                <select style="background: #c9e9ff; font-weight: bold;" name='radioSeX' id='radioSeX' class="form-control">
+                                    <option value="0">Seleccionar</option>
+                                    <option value="1">Masculino</option>
+                                    <option value="2">Femenino</option>
+
+                                </select>
+
+                            </div>
+
+                        </div>
+                        <div class="col-lg-2 col-md-2">
+                            <label>Estado civil</label>
+                            <div class="form-group">
+                                <select style="background: #c9e9ff; font-weight: bold;" name='optradio' id='optradio' class="form-control">
+                                    <option value="0">Seleccionar</option>
+                                    <option value="1">Casado</option>
+                                    <option value="2">Soltero</option>
+                                    <option value="3">Otros</option>
+
+                                </select>
+                            </div>
+                        </div>
+
+
+
+
+                    </div>
+
+                    <div class="row">
+                        <div class="col-lg-12 col-md-12">
+
+                            <label asp-for="Direccion"> Cedula N°</label>
+                            <input asp-for="Direccion" placeholder="Cedula" autocomplete="off" class="form-control" />
+
+
+                        </div>
+                    </div>
+
+
+
+                    <div class="row">
+                        <div class="col-lg-4 col-md-4">
+                            <div class="form-group">
+                                <label>Departamento</label>
+                                <select style="background: #c9e9ff; font-weight: bold;" name='dtDepartament' id='dtDepartament' class="form-control">
+                                </select>
+
+
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-4">
+
+                            <div class="form-group">
+                                <label>Ciudad</label>
+                                <select style="background: #c9e9ff; font-weight: bold;" name='dtCities' id='dtCities' class="form-control">
+                                    <option value="0">Seleccionar</option>
+                                </select>
+
+                            </div>
+
+
+
+                        </div>
+
+                        <div class="col-lg-4 col-md-4">
+                            <div class="form-group">
+                                <label>Telefono domiciliar</label>
+                                <input type="text" style="font-weight: bold" name="w2int" id="w2int" placeholder="Telefono" value="" class="form-control" />
+                            </div>
+                        </div>
+
+                    </div>
+
+
+
+                    <div class="row">
+
+
+                        <div class="col-lg-2 col-md-2">
+                            <div class="form-group">
+                                <label>Telefono/Celular</label>
+                                <input type="text" style="font-weight: bold" placeholder="Telefono/Celular" class="form-control" />
+                            </div>
+
+                        </div>
+                    </div>
+
+
+
+
+                </div>
+            </div>
+
+
+            <div class="panel panel-default">
+                <div class="panel-heading" style="text-align: center;font-weight:bold">
+                   
+
+                </div>
+                <!-- /.panel-heading -->
+                <div class="panel-body">
+
+                    <div class="row">
+                        <div class="col-lg-2 ">
+                            <label>Subir Imagen</label>
+                        </div>
+                        <div class="col-lg-3  col-md-3">
+                            <i class="fas fa-address-card" style="font-size:30px"></i>
+
+                            <button type="button" id="cargarImage" name="cargarImage" style="padding:10px; margin:0 50px 15px 0;" class="btn btn-primary btn-sm pull-right" data-toggle="modal" data-target="#img-modal"> <b>Subir Imagen</b></button>
+
+                        </div>
+                        <div class="col-lg-3  col-md-3">
+                            <input type="text" style="font-weight: bold" readonly="true" name="nameIMG" id="nameIMG" placeholder="Imagen" class="form-control" />
+                            <input id="base64" name="base64" type="hidden">
+                        </div>
+                        <div class="col-lg-3  col-md-3">
+
+                            <img id="imgData" class="" style="height: 150px; width: 150px;" src="../upload/student.png">
+
+
                         </div>
                     </div>
                 </div>
-          
+            </div>
+
+            <div class="well">
+                <div class="row">
+                    <div class="col-lg-2 col-md-offset-2">
+                        <label>Guardar datos</label>
+                    </div>
+                    <div class="col-lg-6  col-md-6">
+
+                        <button type="submit" name="btnguardar" class="btn btn-sm btn-success"><i class="fa fa-save" aria-hidden="true"></i> Guardar</button>
+                        <a asp-action="Index" class="btn btn-sm btn-danger">Cancelar</a>
+                    </div>
+                </div>
+            </div>
+
 
         </form>
 

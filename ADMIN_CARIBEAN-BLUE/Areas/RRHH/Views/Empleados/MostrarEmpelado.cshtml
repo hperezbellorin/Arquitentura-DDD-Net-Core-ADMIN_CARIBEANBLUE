@@ -1,0 +1,141 @@
+﻿@model Aplicacion.EntidadesDto.EmpleadosDto
+@{
+    ViewData["Title"] = "MostrarEmpelado";
+    Layout = "~/Views/Shared/_LayoutRRHH.cshtml";
+}
+
+
+<ol class="breadcrumb mb-3">
+    <h1l class="mt-4">Detalle de Empelado</h1l>
+</ol>
+<div class="card mb-lg-5">
+    <div class="card-header">
+        <i class="fas fa-table me-1"></i>
+       
+    </div>
+    <div class="card-body">
+        <div class="text-danger" asp-validation-summary="ModelOnly">
+        </div>
+        <div class="alert alert-success">
+            <div class="row">
+                <div class="col-lg-8 col-md-8">
+                    <a asp-action="Index" class="btn btn-danger btn-sm pull-right">Listado empleados</a>
+                   
+                </div>
+
+            </div>
+        </div>
+        <div class="row">
+            <!-- row Proncipal-->
+
+
+
+
+            <div class="col-lg-9  col-md-9">
+                <div class="w-100 p-3">
+                    <div class="row">
+                        <div class="col-lg-3 col-md-5">
+                            <label asp-for="Nombres"></label>
+                        </div>
+                        <div class="col-lg-4 col-md-4">
+                            <div class="form-group">
+
+                                <input asp-for="Nombres" placeholder="Nombres" readonly="true" autocomplete="off" class="form-control" />
+
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-3 col-md-4">
+                            <label asp-for="Apellido1">Primer Apellido</label>
+                        </div>
+                        <div class="col-lg-4 col-md-4">
+                            <div class="form-group">
+
+                                <input asp-for="Apellido1" placeholder="Apellidos" readonly="true" autocomplete="off" class="form-control" />
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-3 col-md-3">
+                            <label asp-for="Cedula"> Cedula N°</label>
+                        </div>
+                        <div class="col-lg-4 col-md-4">
+
+                            <div class="form-group">
+
+                                <input asp-for="Cedula" placeholder="Cedula" readonly="true" autocomplete="off" class="form-control" />
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-lg-3 col-md-3">
+                            <label asp-for="Correo">Correo</label>
+                        </div>
+                        <div class="col-lg-4 col-md-4">
+                            <div class="form-group">
+
+                                <input asp-for="Correo" placeholder="Correo" readonly="true" autocomplete="off" class="form-control" />
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-lg-3 col-md-3">
+                            <label asp-for="Direccion"> Dirección</label>
+                        </div>
+                        <div class="col-lg-8 col-md-8">
+                            <div class="form-group">
+
+                                <input asp-for="Direccion" placeholder="Direccion" readonly="true" autocomplete="off" class="form-control" />
+                            </div>
+                        </div>
+                    </div>
+
+
+
+                    <hr />
+                </div>
+
+            </div>
+
+            <div class="col-lg-3">
+                <!-- Notifications-->
+                <div class="w-100 p-3">
+                    <div class="panel panel-default">
+                        <div class="panel-body">
+                            <div class="row">
+                                <div class="col-xs-7 col-xs-offset-2">
+                                    <img id="imgData" class="img-circle" alt="Cinque Terre">
+                                </div>
+                            </div>
+                            <br>
+                            <br>
+
+
+                            <div class="list-group">
+                                <a href="#" class="list-group-item">
+                                    Codigo Empelado
+                                    <input asp-for="Id" placeholder="Id" readonly="true" autocomplete="off" class="form-control" />
+
+
+                                </a>
+
+
+                        </div> <!-- /.FIN list-group -->
+
+
+                    </div><!-- /.Fin div panel body default -->
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+    </div>

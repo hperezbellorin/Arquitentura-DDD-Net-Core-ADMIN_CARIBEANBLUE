@@ -30,6 +30,8 @@ namespace Aplicacion.Servicio
                     emp.Apellido1 = empleado.Apellido1;
                     emp.Cedula = empleado.Cedula;
                     emp.Correo = empleado.Correo;
+                    emp.Direccion = empleado.Direccion;
+                    
                 }
 
                 return await empleadosDominioServicio.Edit(emp);
@@ -52,10 +54,22 @@ namespace Aplicacion.Servicio
               if(employees != null)
                 {
                     empDto.Nombres = General.ValidateNullorEmptySTRING(employees.Nombres.TrimEnd());
-                    if (employees.Apellido1 != null) { General.ValidateNullorEmptySTRING(employees.Apellido1.TrimEnd()); }
+                        if(employees.Apellido1 != null)
+                    {
+                        empDto.NombreCompleto = employees.Nombres + " " + employees.Apellido1;
+                    }
+                    if (employees.Apellido1 != null) { empDto.Apellido1 =  General.ValidateNullorEmptySTRING(employees.Apellido1.TrimEnd()); }
                     
                     empDto.Cedula = General.ValidateNullorEmptySTRING(employees.Cedula.TrimEnd());
                     empDto.Correo = General.ValidateNullorEmptySTRING(employees.Correo.TrimEnd());
+                    if (employees.Direccion != null){empDto.Direccion = General.ValidateNullorEmptySTRING(employees.Direccion.TrimEnd()); }
+                  
+
+
+
+
+
+                      
 
                 }
                     
@@ -70,9 +84,17 @@ namespace Aplicacion.Servicio
             }
         }
 
-        public Task<bool> eliminarEmpleado(string id)
+        public async Task<bool> eliminarEmpleado(int id)
         {
-            throw new NotImplementedException();
+            try
+            {
+                return await empleadosDominioServicio.Eliminar(id);
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
         }
 
         public async Task<List<EmpleadosDto>> GetEmleadosList()
@@ -91,6 +113,7 @@ namespace Aplicacion.Servicio
                 dto.Apellido1 = item.Apellido1;
                 dto.Cedula = item.Cedula;
                 dto.Correo = item.Correo;
+                dto.Direccion = item.Direccion;
                 empleadosDtosList.Add(dto);
             }
 
@@ -108,7 +131,8 @@ namespace Aplicacion.Servicio
             emp.Correo = General.ValidateNullorEmptySTRING(empleado.Correo.TrimEnd());
             //emp.fi = DateTime.Now.ToString();
             emp.Cedula = General.ValidateNullorEmptySTRING(empleado.Cedula.TrimEnd());
-                emp.Estado = "1";
+            emp.Direccion = General.ValidateNullorEmptySTRING(empleado.Direccion.TrimEnd());
+            emp.Estado = "1";
             emp.IsActive = true;
             }
 

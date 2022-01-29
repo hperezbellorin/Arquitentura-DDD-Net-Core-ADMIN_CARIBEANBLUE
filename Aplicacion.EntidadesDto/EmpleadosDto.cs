@@ -11,6 +11,8 @@ namespace Aplicacion.EntidadesDto
         public string Estado { get; set; }
         [Required(ErrorMessage = "El campo Nombre no puede estar vacio")]
         public string Nombres { get; set; }
+
+        public string NombreCompleto { get; set; }
         public string Apellido1 { get; set; }
         public string Apellido2 { get; set; }
         [Required(ErrorMessage = "El campo Cedula no puede estar vacio")]

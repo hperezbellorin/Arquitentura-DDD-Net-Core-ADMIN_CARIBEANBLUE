@@ -60,6 +60,70 @@ namespace ADMIN_CARIBEANBLUE.Areas.RRHH.Controllers
             
         }
 
+        public async Task<IActionResult> Delete(int Id)
+        {
+            var empleado = await _empleadosAplicacionServicio.buscarempleadoporId(Id);
+            if (empleado != null)
+            {
+                return View(empleado);
+            }
+            else
+            {
+                return RedirectToAction(nameof(Index));
+
+            }
+
+
+        }
+        [HttpPost]
+        public async Task<IActionResult> DeleteEmpleado(int Id)
+        {
+              bool aanswer = false; 
+            try
+            {
+                aanswer = await _empleadosAplicacionServicio.eliminarEmpleado(Id);
+                if (aanswer)
+                {
+                    return RedirectToAction(nameof(Index));
+                }
+                else
+                {
+                    return View();
+                }
+
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+
+        }
+
+
+
+            public async Task<IActionResult> MostrarEmpelado(int Id)
+        {
+
+
+
+            var empleado = await _empleadosAplicacionServicio.buscarempleadoporId(Id);
+            if (empleado != null)
+            {
+                return View(empleado);
+            }
+            else
+            {
+                return RedirectToAction(nameof(Index));
+
+            }
+
+
+        }
+
+
+
+
         [HttpPost]
         public async Task<IActionResult> Editar(EmpleadosDto empleadosModel)
         {

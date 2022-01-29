@@ -67,6 +67,7 @@ namespace Dominio.Negocio
             empleadoActual.Apellido1 = empleados.Apellido1;
             empleadoActual.Cedula = empleados.Cedula;
             empleadoActual.Correo = empleados.Correo;
+            empleadoActual.Direccion = empleados.Direccion;
             return await Task.Factory.StartNew(() =>
             {
                 unidadTrabajoRRHH.EmpleadosDB.Update(empleadoActual);
@@ -83,14 +84,28 @@ namespace Dominio.Negocio
 
         }
 
-        public Task<bool> Eliminar(int Id)
+        public async Task<bool> Eliminar(int Id)
         {
-            throw new NotImplementedException();
+            try
+            {
+                var empleado = await unidadTrabajoRRHH.EmpleadosDB.Buscar(Id);
+                empleado.IsActive =  false;
+                unidadTrabajoRRHH.EmpleadosDB.Update(empleado);
+                unidadTrabajoRRHH.commit();
+
+
+                return true;
+            }
+            catch (Exception ex)
+            {
+
+                throw new Exception("Ocurrio un problema al eliminar el empleado",ex);
+            }
         }
 
         public async Task<List<Empleados>> GetEmployeesList()
         {
-            return unidadTrabajoRRHH.EmpleadosDB.Lista().ToList();
+            return unidadTrabajoRRHH.EmpleadosDB.Lista().Where(x => x.IsActive == true).ToList();
             
         }
     }

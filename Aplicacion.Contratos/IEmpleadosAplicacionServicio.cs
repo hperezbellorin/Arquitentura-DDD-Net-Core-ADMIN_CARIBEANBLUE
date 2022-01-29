@@ -11,7 +11,7 @@ namespace Aplicacion.Contratos
          Task<List<EmpleadosDto>> GetEmleadosList();
         Task<bool> guardarEmpleado(EmpleadosDto empleado);
 
-        Task<bool> eliminarEmpleado(string id);
+        Task<bool> eliminarEmpleado(int id);
         Task<bool> actualizarEmpleado(EmpleadosDto empleado);
         Task<EmpleadosDto> buscarempleadoporId(int Id);
     }

@@ -1,0 +1,61 @@
+﻿@model Aplicacion.EntidadesDto.EmpleadosDto
+@{
+    ViewData["Title"] = "Delete";
+    Layout = "~/Views/Shared/_LayoutRRHH.cshtml";
+}
+
+<h1>Delete</h1>
+
+<ol class="breadcrumb mb-3">
+    <h1l class="mt-4">Listado Empleados</h1l>
+</ol>
+<div class="alert alert-success">
+    <div class="row">
+        <div class="col-lg-8 col-md-8">
+            <a asp-action="Index" class="btn btn-danger btn-sm pull-right">Listado empleados</a>
+
+        </div>
+
+    </div>
+</div>
+<div class="card mb-4">
+    <div class="card-header">
+        <i class="fas fa-table me-1"></i>
+        Eliminar Empleados
+    </div>
+    <div class="card-body">
+        <div class="text-danger" asp-validation-summary="ModelOnly">
+
+        </div>
+        <form asp-action="DeleteEmpleado" method="post">
+            <div class="row">
+                <div class="col-lg-3 col-md-4">
+                    <label asp-for="Id">Id Empleado</label>
+                </div>
+                    <div class="col-lg-4 col-md-4">
+                        <div class="form-group">
+                           
+                            <input asp-for="Id" readonly="true" class="form-control" />
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-3 col-md-4">
+                        <label asp-for="Nombres">Esta seguro eliminar al empelado :</label>
+                    </div>
+                    <div class="col-lg-4 col-md-4">
+                        <div class="form-group">
+
+                            <input asp-for="NombreCompleto" placeholder="Nombres" readonly="true" autocomplete="off" class="form-control" />
+
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-4">
+                        <button type="submit" name="btnguardar" class="btn btn-sm btn-danger"><i class="fa fa-save" aria-hidden="true"></i> Eliminar</button>
+                        <a asp-action="Index" class="btn btn-sm btn-primary">Cancelar</a>
+                    </div>
+                </div>
+
+</form>
+    </div>
+</div>
