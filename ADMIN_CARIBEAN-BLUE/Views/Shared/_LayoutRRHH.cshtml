@@ -15,7 +15,7 @@
 
 </head>
 <body class="sb-nav-fixed">
-   
+
     <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
         <!-- Navbar Brand-->
         <a class="navbar-brand ps-3" href="index.html">RRHH</a>
@@ -49,15 +49,15 @@
         </div>
         <div id="layoutSidenav_content">
             <main>
-                <div class="container-fluid px-5">
-                  
+                <div class="container">
+
                     <div class="row">
                         @RenderBody()
 
                     </div>
-                   
+
                 </div>
-                
+
             </main>
             <footer class="py-4 bg-light mt-auto">
                 <div class="container-fluid px-4">
@@ -73,15 +73,31 @@
             </footer>
         </div>
     </div>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
-    <script src="~/js/scripts.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js" crossorigin="anonymous"></script>
-    <script src="~/assets/demo/chart-area-demo.js"></script>
-    <script src="~/assets/demo/chart-bar-demo.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/simple-datatables@latest" crossorigin="anonymous"></script>
-    <script src="~/sjs/datatables-simple-demo.js"></script>
-    <script src="~/js/site.js" asp-append-version="true"></script>
+    <link href="~/assets/DatatablesJquery/jquery.dataTables.css" rel="stylesheet" />
+    <link href="~/assets/DatatablesJquery/buttons.dataTables.min.css" rel="stylesheet" />
 
+
+
+    <script src="~/js/scripts.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+    <script src="~/assets/DatatablesJquery/Jquery.min.1.7.js"></script>
+
+
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    <script src="~/assets/DatatablesJquery/bootstrap.js"></script>
+    <script src="~/assets/DatatablesJquery/jquery-1.12.4.js"></script>
+
+
+    <script src="~/assets/DatatablesJquery/dataTables.min.js"></script>
+    <script src="~/assets/DatatablesJquery/dataTables.buttons.min.js"></script>
+    @*<script src="~/assets/DatatablesJquery/buttonsflash.min.js"></script>*@
+    <script src="~/assets/DatatablesJquery/buttons.print.min.js"></script>
+    <script src="~/assets/DatatablesJquery/jszip.min.js"></script>
+
+
+    <script src="~/assets/DatatablesJquery/pdfmake.min.js"></script>
+    <script src="~/assets/DatatablesJquery/vfs_fons.js"></script>
+    <script src="~/assets/DatatablesJquery/buttons.html5.min.js"></script>
     @RenderSection("Scripts", required: false)
 </body>
 </html>
