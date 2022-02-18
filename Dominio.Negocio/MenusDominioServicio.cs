@@ -36,9 +36,9 @@ namespace Dominio.Negocio
             throw new NotImplementedException();
         }
 
-        public async Task<List<Aspetmenus>> GetMenusList()
+        public async Task<List<Aspetmenus>> GetMenusList(int IdPadre)
         {
-            return _unidadTrabajoADMIN.MenusDB.Lista().ToList();
+            return _unidadTrabajoADMIN.MenusDB.Lista().Where(x => x.PadreId == IdPadre).ToList();
           
         }
     }

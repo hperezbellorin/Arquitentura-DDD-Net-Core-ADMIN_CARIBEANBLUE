@@ -133,8 +133,12 @@ namespace MVC_presentacion
                 .AddEntityFrameworkStores<SeguridadContext>()
           .AddDefaultTokenProviders();
 
-
-           services.AddMvc();
+            services.AddDistributedMemoryCache();
+            services.AddSession(options => {
+                options.IdleTimeout = TimeSpan.FromMinutes(1);//You can set Time   
+             
+            });
+            services.AddMvc();
          
 
 
@@ -159,6 +163,10 @@ namespace MVC_presentacion
            app.UseAuthentication();
             
             app.UseMvc();
+
+            //Enable Session.
+            app.UseSession();
+
             app.UseMvc(routes =>
             {
 
@@ -166,9 +174,16 @@ namespace MVC_presentacion
              
 
                 routes.MapRoute(
-                                   name: "RRHH",
-                                   template: "{area:exists}/{controller=Home}/{action=Index}/{id?}"
-                                 );
+                name: "RRHH",
+                template: "{area:exists}/{controller=Home}/{action=Index}/{id?}"
+                );
+
+              
+                    routes.MapRoute(
+                      name: "SEGURIDAD",
+                      template: "{area:exists}/{controller=Home}/{action=Index}/{id?}"
+                    );
+              
 
                 routes.MapRoute(
                 name: "default",

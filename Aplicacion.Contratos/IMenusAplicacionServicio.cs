@@ -8,6 +8,6 @@ namespace Aplicacion.Contratos
 {
    public interface IMenusAplicacionServicio
     {
-        Task<List<MenusDto>> GeMenusList();
+        Task<List<MenusDto>> GeMenusList(int IdPadre);
     }
 }

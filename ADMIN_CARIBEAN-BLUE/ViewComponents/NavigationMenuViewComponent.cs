@@ -1,5 +1,6 @@
 ﻿using Aplicacion.Contratos;
 using Aplicacion.EntidadesDto;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections;
@@ -18,7 +19,8 @@ namespace MVC_presentacion.ViewComponents
         }
         public async Task<IViewComponentResult> InvokeAsync()
         {
-            var items = await _menuAplicacionServicio.GeMenusList();
+            int idMenu = (int)HttpContext.Session.GetInt32("_IdMenu");
+            var items = await _menuAplicacionServicio.GeMenusList(idMenu);
 
             List<MenusDto> menuList = new List<MenusDto>();
             ArrayList menus = new ArrayList();

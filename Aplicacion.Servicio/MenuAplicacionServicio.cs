@@ -17,9 +17,9 @@ namespace Aplicacion.Servicio
             this._menusDominioServicio = menusDominioServicio;
         }
 
-        public async  Task<List<MenusDto>> GeMenusList()
+        public async  Task<List<MenusDto>> GeMenusList(int IdPadre)
         {
-            var menusList = await _menusDominioServicio.GetMenusList();
+            var menusList = await _menusDominioServicio.GetMenusList(IdPadre); 
             List<MenusDto> menusListDto = new List<MenusDto>();
 
           

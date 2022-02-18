@@ -8,7 +8,7 @@ namespace Dominio.Servicios
 {
    public  interface IAspMenusDominioServicios
     {
-        Task<List<Aspetmenus>> GetMenusList();
+        Task<List<Aspetmenus>> GetMenusList(int IdPadre);
         Task<bool> Create(Aspetmenus probabilidades);
 
         Task<bool> Edit(Aspetmenus probabilidades);
